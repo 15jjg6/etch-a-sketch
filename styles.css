@@ -1,0 +1,10 @@
+body {
+	background-color: pink;
+}
+
+#sketch-board {
+	background: white;
+	width: 50%;
+  	padding-top: 50%; /* 1:1 Aspect Ratio */
+  	position: relative; /* If you want text inside of it */
+}

@@ -1,6 +1,6 @@
 function createSketchDivs(sideLength) {
 	const sketchBoard = document.querySelector('#sketch-board');
-
+	//console.log(sketchBoard.lastChild);
 	while (sketchBoard.lastElementChild) {
 		sketchBoard.removeChild(sketchBoard.lastElementChild);
 	}
@@ -17,4 +17,16 @@ function createSketchDivs(sideLength) {
 	}
 }
 
-createSketchDivs(16);
+function changeColor(e) {
+	e.srcElement.classList.add("color");
+}
+
+
+createSketchDivs(40);
+
+const pixels = document.getElementsByClassName('pixel');
+console.log(pixels);
+Array.from(pixels).forEach(function (pixel) {
+	pixel.addEventListener('mouseover', changeColor);
+	pixel.mouseover = changeColor;
+});

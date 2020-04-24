@@ -24,3 +24,7 @@ body {
 	flex-grow: 1; 
 /*	border: thin solid black;*/
 }
+
+.color {
+	background-color: black;
+}

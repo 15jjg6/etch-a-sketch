@@ -4,7 +4,23 @@ body {
 
 #sketch-board {
 	background: white;
-	width: 50%;
-  	padding-top: 50%; /* 1:1 Aspect Ratio */
-  	position: relative; /* If you want text inside of it */
+	width: 500px;
+  	height: 500px; /* 1:1 Aspect Ratio */
+	position: relative; 
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.row {
+	display: flex; 
+	flex-direction: row;
+	flex-grow: 1;
+/*	border: thin solid red;*/
+}
+
+.pixel {
+	display: flex; 
+	flex-grow: 1; 
+/*	border: thin solid black;*/
 }

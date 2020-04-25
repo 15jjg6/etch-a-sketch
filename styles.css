@@ -4,8 +4,8 @@ body {
 
 #sketch-board {
 	background: white;
-	width: 500px;
-  	height: 500px; /* 1:1 Aspect Ratio */
+	width: 768px;
+  	height: 768px; /* 1:1 Aspect Ratio */
 	position: relative; 
 	display: flex;
 	flex-direction: column;
@@ -13,7 +13,7 @@ body {
 }
 
 .row {
-	border: 2px solid black;
+/*	border: 2px solid black;*/
 	display: flex; 
 	flex-direction: row;
 	flex-grow: 1;
@@ -21,7 +21,7 @@ body {
 }
 
 .pixel {
-	border: 2px solid red;
+/*	border: 2px solid red;*/
 	display: flex; 
 	flex-grow: 1; 
 /*	border: thin solid black;*/

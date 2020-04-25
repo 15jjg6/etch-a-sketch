@@ -3,8 +3,11 @@ const resetBoard = document.querySelector('#removeDrawing');
 const blackMode = document.querySelector('#blackMode');
 const colorMode = document.querySelector('#colorMode');
 const changeNumberOfPixels = document.querySelector('#changeNumberOfPixels');
+
 let boardSize = 10;
 let gameModeBlack = true;
+let currentColor = 0; 
+
 createSketchDivs(boardSize);
 
 resetBoard.addEventListener('click', () => {
@@ -30,6 +33,19 @@ colorMode.addEventListener('click', () => {
 	createSketchDivs(boardSize);
 });
 
+changeNumberOfPixels.addEventListener('click', () => {
+	const newSize = parseInt(prompt("Enter a whole number between 1 and 256."))
+	if (newSize < 1 || newSize > 256) {
+		return;
+	}
+	boardSize = newSize;
+	remove(); 
+	createSketchDivs(boardSize);
+})
+
+
+
+// Function definitions 
 function createSketchDivs(sideLength) {
 	const sketchBoard = document.querySelector('#sketch-board');
 	for(let i = 0; i < sideLength; i++) {
@@ -60,6 +76,5 @@ function remove() {
 function changePixels() {
 	const sideLength = parseInt(prompt('Please enter a value between 1 and 200 for the number of pixels per row.'));
 	remove(); 
-	create
-
+	createSketchDivs();
 }

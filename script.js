@@ -1,6 +1,6 @@
 const sketchBoard = document.querySelector('#sketch-board');
 const resetBoard = document.querySelector('#removeDrawing');
-const blackMode = document.querySelector('#blackMode');
+const sketchMode = document.querySelector('#sketchMode');
 const colorMode = document.querySelector('#colorMode');
 const changeNumberOfPixels = document.querySelector('#changeNumberOfPixels');
 
@@ -15,7 +15,7 @@ resetBoard.addEventListener('click', () => {
 	createSketchDivs(boardSize);
 });
 
-blackMode.addEventListener('click', () => {
+sketchMode.addEventListener('click', () => {
 	if (gameModeShade) {
 		return; 
 	};

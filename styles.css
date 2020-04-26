@@ -5,14 +5,29 @@ body {
 	align-items: center;
 }
 
+#device {
+	background: red; 
+	padding: 0px 30px 0px 30px;
+	border-radius: 20px;
+}
+
+#header {
+	display: flex; 
+	flex-direction: row;
+	justify-content: space-around;	
+	flex-align: center;
+}
+
 #sketch-board {
 	background: white;
 	width: 768px;
   	height: 768px; /* 1:1 Aspect Ratio */
 	position: relative; 
+	padding: 5px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
+	margin-bottom: 20px;
 }
 
 .row {
@@ -28,4 +43,22 @@ body {
 
 .color {
 	background-color: black;
+}
+
+.buttonRow {
+	margin-top: 26px;
+}
+
+button {
+	background-color: white;
+	border-radius: 8px;
+	height: 30px;
+	font-size: 16px;
+	transition-duration: 0.4s;
+}
+
+#options {
+	display: flex; 
+	flex-direction: column; 
+	flex-basis: center;
 }

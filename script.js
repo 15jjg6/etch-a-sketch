@@ -5,7 +5,7 @@ const colorMode = document.querySelector('#colorMode');
 const changeNumberOfPixels = document.querySelector('#changeNumberOfPixels');
 
 let boardSize = 10;
-let gameModeBlack = true;
+let gameModeShade = true;
 let currentColor = 0; 
 
 createSketchDivs(boardSize);
@@ -16,20 +16,20 @@ resetBoard.addEventListener('click', () => {
 });
 
 blackMode.addEventListener('click', () => {
-	if (gameModeBlack) {
+	if (gameModeShade) {
 		return; 
 	};
 	remove(); 
-	gameModeBlack = true; 
+	gameModeShade = true; 
 	createSketchDivs(boardSize);
 });
 
 colorMode.addEventListener('click', () => {
-	if (!gameModeBlack) {
+	if (!gameModeShade) {
 		return; 
 	};
 	remove(); 
-	gameModeBlack = false; 
+	gameModeShade = false; 
 	createSketchDivs(boardSize);
 });
 
@@ -54,15 +54,42 @@ function createSketchDivs(sideLength) {
 		for (let j = 0; j < sideLength; j++) {
 			let pixel = document.createElement('div');
 			pixel.setAttribute('class', 'pixel');
-			pixel.addEventListener('mouseover', changeToBlack);
+			if (gameModeShade) {
+				pixel.addEventListener('mouseover', sketch);
+			} else {
+				pixel.addEventListener('mouseover', changeToColor);
+			}
 			row.appendChild(pixel);
 		}
 		sketchBoard.appendChild(row);
 	}
 }
 
-function changeToBlack(e) {
-	e.srcElement.style.backgroundColor = "black";
+function sketch(e) {
+	const currentColor = e.srcElement.style.backgroundColor;
+	if (!currentColor) {
+		e.srcElement.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+		return;
+	} else if (currentColor.slice(0, 4) !== 'rgba'){
+		return;
+	}
+
+	let alpha = getTransparency(currentColor)
+	if (alpha === 1) { 
+		return;
+	}
+
+	const newTransparency = alpha + 0.1;
+	e.srcElement.style.backgroundColor = "rgba(0, 0, 0, " + newTransparency + ")";
+}
+
+function getTransparency(rgbaString) { //want 14 15 16
+	return parseFloat(rgbaString.slice(14, 17));
+}
+
+function changeToColor(e) {
+	e.srcElement.style.backgroundColor = "hsl(" + currentColor + ", 80%, 50%)";
+	currentColor = (currentColor + 15) % 360; 
 }
 
 function remove() {

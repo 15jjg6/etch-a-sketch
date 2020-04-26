@@ -1,5 +1,8 @@
 body {
 	background-color: beige;
+	display: flex; 
+	flex-direction: column;
+	align-items: center;
 }
 
 #sketch-board {
@@ -13,18 +16,14 @@ body {
 }
 
 .row {
-/*	border: 2px solid black;*/
 	display: flex; 
 	flex-direction: row;
 	flex-grow: 1;
-/*	border: thin solid red;*/
 }
 
 .pixel {
-/*	border: 2px solid red;*/
 	display: flex; 
 	flex-grow: 1; 
-/*	border: thin solid black;*/
 }
 
 .color {
